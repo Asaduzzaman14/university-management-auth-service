@@ -7,7 +7,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 
 // GET method route
-app.get('/', (req: Request, res: any) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('GET request to the homepage')
 })
 

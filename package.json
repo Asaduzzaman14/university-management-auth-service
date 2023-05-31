@@ -5,15 +5,18 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint --fix",
+    "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "pretter:fix": "pretter --write .",
     "pretter:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "asaduzzaman",
   "license": "ISC",
   "lint-staged": {
-    "src/**/*.ts": "npm run lint-prettier"
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
