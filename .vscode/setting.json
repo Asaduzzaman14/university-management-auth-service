@@ -1,0 +1,6 @@
+{
+  "editor.codeActionsOnSave": {
+    "sourse.fixAll.eslint": true,
+    "sourse.oranizeImports": true
+  }
+}
