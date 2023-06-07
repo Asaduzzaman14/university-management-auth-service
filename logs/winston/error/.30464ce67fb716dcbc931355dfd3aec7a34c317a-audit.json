@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\.30464ce67fb716dcbc931355dfd3aec7a34c317a-audit.json",
+    "files": [
+        {
+            "date": 1686108449098,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-07-06-09-error.log",
+            "hash": "5d252b9a450eb604d5ef27c728df3e32373268adc68cefff4ffe72489a76b665"
+        },
+        {
+            "date": 1686118360248,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-07-06-12-error.log",
+            "hash": "96d932f485335a4f08be016bc7cc2ef87a487f38968e33359708302266baa2f1"
+        }
+    ],
+    "hashType": "sha256"
+}
