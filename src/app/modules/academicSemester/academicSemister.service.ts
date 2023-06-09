@@ -3,6 +3,7 @@ import ApiError from '../../../errors/ApiError';
 import { IAcademicSemister } from './academicSemester.Interface';
 import { AcademicSemister } from './academicSemesterModal';
 import { academicSemesterTitleCodeMapper } from './academicSemister.constant';
+import { IPagenaionOptions } from '../../../interfaces/paginition';
 
 const createSemester = async (
   paylode: IAcademicSemister
@@ -15,6 +16,9 @@ const createSemester = async (
   return result;
 };
 
+const getAllSemesters = (pageinationOptions: IPagenaionOptions) => {};
+
 export const AcademicSemesterService = {
   createSemester,
+  getAllSemesters,
 };
