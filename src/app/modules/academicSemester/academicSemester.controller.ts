@@ -1,3 +1,4 @@
+import { IAcademicSemister } from './academicSemester.Interface';
 import { NextFunction, Request, Response } from 'express';
 import { AcademicSemesterService } from './academicSemister.service';
 import catchAsync from '../../../shared/catchAsync';
@@ -25,22 +26,22 @@ const createSemester = catchAsync(
 
 const getAllSemesters = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
-    const query = req.query;
+    const query = req.query as Record<string, object>;
 
     const paginationOptions = pick(query, paginationKeys);
 
-    console.log(paginationOptions);
+    const result = await AcademicSemesterService.getAllSemesters(
+      paginationOptions
+    );
+    // console.log(result);
 
-    // const result = await AcademicSemesterService.getAllSemesters(
-    //   paginationOptions
-    // );
-
-    // sendResponse(res, {
-    //   statusCode: httpStatus.OK,
-    //   success: true,
-    //   message: 'Semester Retrive Successfully',
-    //   data: result,
-    // });
+    sendResponse<IAcademicSemister[]>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Semester Retrieved Successfully',
+      data: result.data,
+      meta: result.meta,
+    });
     // next();
   }
 );
