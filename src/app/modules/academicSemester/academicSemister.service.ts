@@ -6,6 +6,7 @@ import { academicSemesterTitleCodeMapper } from './academicSemister.constant';
 import { IPagenaionOptions } from '../../../interfaces/paginition';
 import { IGenericResponse } from '../../../interfaces/common';
 import calculatePagination from '../../../helpers/paginationHelper';
+import { SortOrder } from 'mongoose';
 
 const createSemester = async (
   paylode: IAcademicSemister
@@ -21,16 +22,19 @@ const createSemester = async (
 const getAllSemesters = async (
   pageinationOptions: IPagenaionOptions
 ): Promise<IGenericResponse<IAcademicSemister[]>> => {
-  // const { page = 1, limit = 10 } = pageinationOptions;
-  // const skip = (page - 1) * limit;
+  const { page, limit, skip, sortBy, sortOrder } =
+    calculatePagination(pageinationOptions);
 
-  const { page, limit, skip } = calculatePagination(pageinationOptions);
+  const sortCondations: { [key: string]: SortOrder } = {};
+
+  if (sortBy && sortOrder) {
+    sortCondations[sortBy] = sortOrder;
+  }
 
   const result = await AcademicSemister.find()
-    .sort({ year: 1 })
+    .sort(sortCondations)
     .skip(skip)
     .limit(limit);
-  // console.log(result);
 
   const total = await AcademicSemister.countDocuments();
   return {

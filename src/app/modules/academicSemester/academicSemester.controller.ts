@@ -19,6 +19,7 @@ const createSemester = catchAsync(
       success: true,
       message: 'Academic semester Created Successfully',
       data: result,
+      meta: null,
     });
     next();
   }
