@@ -25,7 +25,7 @@ async function main() {
   }
 
   process.on('unhandledRejection', error => {
-    console.log('unhandel Rejection ');
+    // console.log('unhandel Rejection ');
 
     if (server) {
       server.close(() => {
