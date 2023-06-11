@@ -15,9 +15,6 @@ app.use(express.json()); // Add this line to parse JSON data
 
 app.use('/api/v1/', router);
 
-// app.use('/api/v1/users/', UserRoutes);
-// app.use('/api/v1/semester/', SemesterRoutes);
-
 // testing
 // app.get('/', async (req: Request, res: Response) => {
 // console.log('APi is working')
