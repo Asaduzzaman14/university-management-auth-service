@@ -5,7 +5,10 @@ import {
   IAcademicSemister,
 } from './academicSemester.Interface';
 import { AcademicSemister } from './academicSemesterModal';
-import { academicSemesterTitleCodeMapper } from './academicSemister.constant';
+import {
+  academicSemesterSearchingFields,
+  academicSemesterTitleCodeMapper,
+} from './academicSemister.constant';
 import { IPagenaionOptions } from '../../../interfaces/paginition';
 import { IGenericResponse } from '../../../interfaces/common';
 import calculatePagination from '../../../helpers/paginationHelper';
@@ -26,15 +29,22 @@ const getAllSemesters = async (
   filters: IAcademicSemesterFilters,
   pageinationOptions: IPagenaionOptions
 ): Promise<IGenericResponse<IAcademicSemister[]>> => {
-  const { searchTerm } = filters;
+  const { searchTerm, ...filtersData } = filters;
 
-  const academicSemesterSearchingFields = ['title', 'code', 'year'];
   const andCondation = [];
 
   if (searchTerm) {
     andCondation.push({
       $or: academicSemesterSearchingFields.map(field => ({
         [field]: { $regex: searchTerm, $options: 'i' },
+      })),
+    });
+  }
+
+  if (Object.keys(filtersData).length) {
+    andCondation.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
       })),
     });
   }
