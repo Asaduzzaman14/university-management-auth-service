@@ -8,6 +8,7 @@ import ApiError from '../../errors/ApiError';
 import { errorlogger } from '../../shared/logger';
 import { ZodError } from 'zod';
 import handelZodError from '../../errors/handelZodError';
+import handleCastError from '../../errors/handleCastError';
 
 // global error handler
 const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
@@ -24,12 +25,23 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     statusCode = simplyfideError.statusCode;
     message = simplyfideError.message;
     errorMessages = simplyfideError.errorMessages;
-  } else if (error instanceof ZodError) {
+  }
+  // Zod Error
+  else if (error instanceof ZodError) {
     const simpliFideError = handelZodError(error);
     statusCode = simpliFideError.statusCode;
     message = simpliFideError.message;
     errorMessages = simpliFideError.errorMessages;
-  } else if (error instanceof ApiError) {
+  }
+  // CastError
+  else if (error?.name === 'CastError') {
+    const simpliFideError = handleCastError(error);
+    statusCode = simpliFideError.statusCode;
+    message = simpliFideError.message;
+    errorMessages = simpliFideError.errorMessages;
+  }
+  // api Error
+  else if (error instanceof ApiError) {
     statusCode = error.statusCode;
     message = error?.message;
     errorMessages = error?.message
@@ -52,6 +64,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
       : [];
   }
 
+  // send error
   res.status(statusCode).json({
     success: false,
     message,
