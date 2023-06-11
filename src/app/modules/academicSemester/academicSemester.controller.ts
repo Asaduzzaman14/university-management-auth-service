@@ -19,33 +19,31 @@ const createSemester = catchAsync(
       success: true,
       message: 'Academic semester Created Successfully',
       data: result,
-      meta: null,
     });
     next();
   }
 );
 
-const getAllSemesters = catchAsync(
-  async (req: Request, res: Response, next: NextFunction) => {
-    const query = req.query as Record<string, object>;
+const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
+  const query = req.query as Record<string, object>;
 
-    const paginationOptions = pick(query, paginationKeys);
+  const paginationOptions = pick(query, paginationKeys);
+  const filters = pick(query, ['searchTerm']);
 
-    const result = await AcademicSemesterService.getAllSemesters(
-      paginationOptions
-    );
-    // console.log(result);
+  const result = await AcademicSemesterService.getAllSemesters(
+    filters,
+    paginationOptions
+  );
 
-    sendResponse<IAcademicSemister[]>(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'Semester Retrieved Successfully',
-      data: result.data,
-      meta: result.meta,
-    });
-    // next();
-  }
-);
+  sendResponse<IAcademicSemister[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Semester Retrieved Successfully',
+    data: result.data,
+    meta: result.meta,
+  });
+  // next();
+});
 
 export const AcademicSemesterContriller = {
   createSemester,

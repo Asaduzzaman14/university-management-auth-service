@@ -1,6 +1,9 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
-import { IAcademicSemister } from './academicSemester.Interface';
+import {
+  IAcademicSemesterFilters,
+  IAcademicSemister,
+} from './academicSemester.Interface';
 import { AcademicSemister } from './academicSemesterModal';
 import { academicSemesterTitleCodeMapper } from './academicSemister.constant';
 import { IPagenaionOptions } from '../../../interfaces/paginition';
@@ -20,8 +23,47 @@ const createSemester = async (
 };
 
 const getAllSemesters = async (
+  filters: IAcademicSemesterFilters,
   pageinationOptions: IPagenaionOptions
 ): Promise<IGenericResponse<IAcademicSemister[]>> => {
+  const { searchTerm } = filters;
+
+  const academicSemesterSearchingFields = ['title', 'code', 'year'];
+  const andCondation = [];
+
+  if (searchTerm) {
+    andCondation.push({
+      $or: academicSemesterSearchingFields.map(field => ({
+        [field]: { $regex: searchTerm, $options: 'i' },
+      })),
+    });
+  }
+
+  // const andCondation = [
+  //   {
+  //     $or: [
+  //       {
+  //         title: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //       {
+  //         code: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //       {
+  //         year: {
+  //           $regex: searchTerm,
+  //           $options: 'i',
+  //         },
+  //       },
+  //     ],
+  //   },
+  // ];
+
   const { page, limit, skip, sortBy, sortOrder } =
     calculatePagination(pageinationOptions);
 
@@ -31,7 +73,7 @@ const getAllSemesters = async (
     sortCondations[sortBy] = sortOrder;
   }
 
-  const result = await AcademicSemister.find()
+  const result = await AcademicSemister.find({ $and: andCondation })
     .sort(sortCondations)
     .skip(skip)
     .limit(limit);
