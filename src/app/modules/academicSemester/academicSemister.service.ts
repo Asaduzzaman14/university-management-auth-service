@@ -108,8 +108,21 @@ const getSingleSemester = async (
   return result;
 };
 
+const updateSemester = async (
+  id: string,
+  paylode: Partial<IAcademicSemister>
+): Promise<IAcademicSemister | null> => {
+  console.log(paylode);
+
+  const result = await AcademicSemister.findOneAndUpdate({ _id: id }, paylode, {
+    new: true,
+  });
+  return result;
+};
+
 export const AcademicSemesterService = {
   createSemester,
   getAllSemesters,
   getSingleSemester,
+  updateSemester,
 };

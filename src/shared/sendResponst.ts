@@ -21,8 +21,6 @@ const sendResponse = <T>(res: Response, data: IApiResponse<T>): void => {
     data: data.data || null,
   };
   res.json(responseData);
-
-  // res.send(data.statusCode).json(responseData);
 };
 
 export default sendResponse;
