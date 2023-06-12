@@ -8,9 +8,9 @@ import pick from '../../../shared/pick';
 import { paginationKeys } from '../../../constants/pagination';
 import { academicFacultyFilterableFields } from './academicFaculty.constant';
 
+// create faculty
 const createFaculty = catchAsync(async (req: Request, res: Response) => {
   const { ...academicFacultyData } = req.body;
-  console.log(academicFacultyData, '1111111111');
 
   const result = await AcademicFacultyService.createFaculty(
     academicFacultyData
@@ -24,6 +24,7 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// get all faculty
 const getAllFacultys = catchAsync(async (req: Request, res: Response) => {
   const query = req.query;
 
@@ -39,11 +40,12 @@ const getAllFacultys = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Semester Retrieved Successfully',
-    data: result,
-    meta: result,
+    data: result.data,
+    meta: result.meta,
   });
 });
 
+// get faculty by id
 const getFacultyById = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
   const result = await AcademicFacultyService.getSingleFaculty(id);
@@ -56,8 +58,22 @@ const getFacultyById = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// update faculty
+const updateFacultyById = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await AcademicFacultyService.updateFacultyById(id);
+
+  sendResponse<IAcademicFaculty>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'faculty  successfully updated',
+    data: result,
+  });
+});
+
 export const academicFacultyController = {
   createFaculty,
   getAllFacultys,
   getFacultyById,
+  updateFacultyById,
 };
