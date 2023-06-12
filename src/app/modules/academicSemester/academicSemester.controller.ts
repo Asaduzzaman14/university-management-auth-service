@@ -1,5 +1,5 @@
 import { IAcademicSemister } from './academicSemester.Interface';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { AcademicSemesterService } from './academicSemister.service';
 import catchAsync from '../../../shared/catchAsync';
 import httpStatus from 'http-status';
@@ -20,7 +20,6 @@ const createSemester = catchAsync(async (req: Request, res: Response) => {
     message: 'Academic semester Created Successfully',
     data: result,
   });
-  // next();
 });
 
 const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
@@ -41,7 +40,6 @@ const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
     data: result.data,
     meta: result.meta,
   });
-  // next();
 });
 
 const getSemestersById = catchAsync(async (req: Request, res: Response) => {
@@ -70,9 +68,23 @@ const updateSemester = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deleteSemester = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await AcademicSemesterService.deleteSemester(id);
+
+  sendResponse<IAcademicSemister>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Semester deleted Successfully',
+    data: result,
+  });
+});
+
 export const AcademicSemesterContriller = {
   createSemester,
   getAllSemesters,
   getSemestersById,
   updateSemester,
+  deleteSemester,
 };

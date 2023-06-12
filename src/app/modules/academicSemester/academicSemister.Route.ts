@@ -19,6 +19,8 @@ router.patch(
   AcademicSemesterContriller.updateSemester
 );
 
+router.delete('/:id', AcademicSemesterContriller.deleteSemester);
+
 router.get('/', AcademicSemesterContriller.getAllSemesters);
 
 export const SemesterRoutes = router;
