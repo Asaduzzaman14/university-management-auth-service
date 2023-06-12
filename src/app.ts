@@ -15,11 +15,6 @@ app.use(express.json()); // Add this line to parse JSON data
 
 app.use('/api/v1/', router);
 
-// testing
-// app.get('/', async (req: Request, res: Response) => {
-// console.log('APi is working')
-// })
-
 // global error handler
 
 app.use(globalErrorHandler);

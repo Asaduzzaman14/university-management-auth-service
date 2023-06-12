@@ -29,6 +29,26 @@
             "date": 1686556460698,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-13-error.log",
             "hash": "68ba5bf6940a598b484b27a4c3ec21f05bb3059f9a0043a74707f74a83ef3f49"
+        },
+        {
+            "date": 1686561307104,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-15-error.log",
+            "hash": "3258cf541eea917cb72331d363a0ad641fe098aff068aa53f44aaeba919976b2"
+        },
+        {
+            "date": 1686564003994,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-16-error.log",
+            "hash": "51a5ec1ed27a5e6ca6e03f866d208399b8460f37907bfd4a8500a71598ce1ce2"
+        },
+        {
+            "date": 1686567987821,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-17-error.log",
+            "hash": "1f621a08b5238c881c211a4e28a66105ba21c291a17524bb9d9de54787094773"
+        },
+        {
+            "date": 1686571443815,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-18-error.log",
+            "hash": "0ebaca4dc9078fab436ced742f1ab09e4a7b8c32f478a40063ac0d7c14bdd8b1"
         }
     ],
     "hashType": "sha256"
