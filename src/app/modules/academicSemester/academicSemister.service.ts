@@ -14,6 +14,7 @@ import { IGenericResponse } from '../../../interfaces/common';
 import calculatePagination from '../../../helpers/paginationHelper';
 import { SortOrder } from 'mongoose';
 
+// Create semester service
 const createSemester = async (
   paylode: IAcademicSemister
 ): Promise<IAcademicSemister> => {
@@ -25,6 +26,7 @@ const createSemester = async (
   return result;
 };
 
+// Get All Semester Services
 const getAllSemesters = async (
   filters: IAcademicSemesterFilters,
   pageinationOptions: IPagenaionOptions
@@ -112,11 +114,23 @@ const updateSemester = async (
   id: string,
   paylode: Partial<IAcademicSemister>
 ): Promise<IAcademicSemister | null> => {
-  console.log(paylode);
-
+  if (
+    paylode.code &&
+    paylode.title &&
+    academicSemesterTitleCodeMapper[paylode.title] !== paylode.code
+  ) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid semester code aa');
+  }
   const result = await AcademicSemister.findOneAndUpdate({ _id: id }, paylode, {
     new: true,
   });
+  return result;
+};
+
+const deleteSemester = async (
+  id: string
+): Promise<IAcademicSemister | null> => {
+  const result = await AcademicSemister.findByIdAndDelete(id);
   return result;
 };
 
@@ -125,4 +139,5 @@ export const AcademicSemesterService = {
   getAllSemesters,
   getSingleSemester,
   updateSemester,
+  deleteSemester,
 };
