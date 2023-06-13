@@ -78,8 +78,23 @@ const getSingleDepartment = async (
   return result;
 };
 
+const updateDepartmentById = async (
+  id: string,
+  paylode: IAcademicDepertment
+): Promise<IAcademicDepertment | null> => {
+  const result = await AcademicDepartment.findByIdAndUpdate(
+    { _id: id },
+    paylode,
+    {
+      new: true,
+    }
+  );
+  return result;
+};
+
 export const academicDepartmentServices = {
   createDepartment,
   getAllDepartment,
   getSingleDepartment,
+  updateDepartmentById,
 };

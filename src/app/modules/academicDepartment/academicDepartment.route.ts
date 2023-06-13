@@ -10,7 +10,7 @@ router.post(
 
 router.get('/:id', academicDepartmentController.getDepartmentById);
 
-// router.patch('/:id', academicFacultyController.updateFacultyById);
+router.patch('/:id', academicDepartmentController.updateDepartmentById);
 
 router.get('/', academicDepartmentController.getAllDepartment);
 

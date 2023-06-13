@@ -75,9 +75,12 @@ const getSingleFaculty = async (
 };
 
 const updateFacultyById = async (
-  id: string
+  id: string,
+  paylode: IAcademicFaculty
 ): Promise<IAcademicFaculty | null> => {
-  const result = await AcademicFaculty.findByIdAndUpdate(id);
+  const result = await AcademicFaculty.findByIdAndUpdate({ _id: id }, paylode, {
+    new: true,
+  });
   return result;
 };
 

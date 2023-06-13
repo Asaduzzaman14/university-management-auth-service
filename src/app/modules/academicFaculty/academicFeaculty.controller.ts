@@ -61,7 +61,12 @@ const getFacultyById = catchAsync(async (req: Request, res: Response) => {
 // update faculty
 const updateFacultyById = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = await AcademicFacultyService.updateFacultyById(id);
+  const updatedData = req.body;
+
+  const result = await AcademicFacultyService.updateFacultyById(
+    id,
+    updatedData
+  );
 
   sendResponse<IAcademicFaculty>(res, {
     statusCode: httpStatus.OK,
