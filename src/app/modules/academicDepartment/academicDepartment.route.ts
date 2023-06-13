@@ -8,7 +8,7 @@ router.post(
   academicDepartmentController.createDepartment
 );
 
-// router.get('/:id', academicFacultyController.getFacultyById);
+router.get('/:id', academicDepartmentController.getDepartmentById);
 
 // router.patch('/:id', academicFacultyController.updateFacultyById);
 
