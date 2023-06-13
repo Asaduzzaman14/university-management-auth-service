@@ -92,9 +92,17 @@ const updateDepartmentById = async (
   return result;
 };
 
+const deleteDepartment = async (
+  id: string
+): Promise<IAcademicDepertment | null> => {
+  const result = await AcademicDepartment.findByIdAndDelete(id);
+  return result;
+};
+
 export const academicDepartmentServices = {
   createDepartment,
   getAllDepartment,
   getSingleDepartment,
   updateDepartmentById,
+  deleteDepartment,
 };

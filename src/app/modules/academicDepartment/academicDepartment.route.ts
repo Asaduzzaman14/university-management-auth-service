@@ -12,6 +12,8 @@ router.get('/:id', academicDepartmentController.getDepartmentById);
 
 router.patch('/:id', academicDepartmentController.updateDepartmentById);
 
+router.delete('/:id', academicDepartmentController.deleteDepartment);
+
 router.get('/', academicDepartmentController.getAllDepartment);
 
 export const AcademicDepartmentRoutes = router;

@@ -10,7 +10,7 @@ export const findLastUserId = async () => {
   return lastuser?.id;
 };
 
-export const genarateUserId = async () => {
+export const genarateStudentId = async () => {
   const currentUserId =
     (await findLastUserId()) || (0).toString().padStart(5, '0');
   const incrementalid = (parseInt(currentUserId) + 1)
