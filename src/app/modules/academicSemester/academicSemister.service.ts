@@ -14,6 +14,7 @@ import { IGenericResponse } from '../../../interfaces/common';
 import calculatePagination from '../../../helpers/paginationHelper';
 import { SortOrder } from 'mongoose';
 
+// Create semester service
 const createSemester = async (
   paylode: IAcademicSemister
 ): Promise<IAcademicSemister> => {
@@ -25,6 +26,7 @@ const createSemester = async (
   return result;
 };
 
+// Get All Semester Services
 const getAllSemesters = async (
   filters: IAcademicSemesterFilters,
   pageinationOptions: IPagenaionOptions
