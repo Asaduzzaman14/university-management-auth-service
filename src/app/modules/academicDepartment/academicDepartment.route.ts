@@ -1,5 +1,5 @@
 import express from 'express';
-import { academicDepartmentController } from './academicDeparment.Controller';
+import { AcademicDepartmentController } from './academicDeparment.Controller';
 import validateRequest from '../../middlewares/validateRequest';
 import { AcademicDepartmentValidation } from './academicDepartment.validation';
 
@@ -10,21 +10,21 @@ router.post(
   validateRequest(
     AcademicDepartmentValidation.createAcademicDepartmentZodSchema
   ),
-  academicDepartmentController.createDepartment
+  AcademicDepartmentController.createDepartment
 );
 
-router.get('/:id', academicDepartmentController.getDepartmentById);
+router.get('/:id', AcademicDepartmentController.getDepartmentById);
 
 router.patch(
   '/:id',
   validateRequest(
     AcademicDepartmentValidation.updateAcademicDepartmentZodSchema
   ),
-  academicDepartmentController.updateDepartmentById
+  AcademicDepartmentController.updateDepartmentById
 );
 
-router.delete('/:id', academicDepartmentController.deleteDepartment);
+router.delete('/:id', AcademicDepartmentController.deleteDepartment);
 
-router.get('/', academicDepartmentController.getAllDepartment);
+router.get('/', AcademicDepartmentController.getAllDepartment);
 
 export const AcademicDepartmentRoutes = router;

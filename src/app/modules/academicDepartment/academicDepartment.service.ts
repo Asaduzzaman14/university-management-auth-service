@@ -99,7 +99,7 @@ const deleteDepartment = async (
   return result;
 };
 
-export const academicDepartmentServices = {
+export const AcademicDepartmentServices = {
   createDepartment,
   getAllDepartment,
   getSingleDepartment,

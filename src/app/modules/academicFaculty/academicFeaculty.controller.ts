@@ -90,7 +90,7 @@ const deleteFaculty = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const academicFacultyController = {
+export const AcademicFacultyController = {
   createFaculty,
   getAllFacultys,
   getFacultyById,

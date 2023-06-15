@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
-import { IStudent, UserModal } from './student.interface';
+import { IStudent, StudentModal } from './student.interface';
 import { bloodGroup, gender } from './student.costant';
 
-export const StudentSchema = new Schema<IStudent, UserModal>(
+export const StudentSchema = new Schema<IStudent, StudentModal>(
   {
     id: {
       type: String,
@@ -141,4 +141,4 @@ export const StudentSchema = new Schema<IStudent, UserModal>(
   }
 );
 
-export const Student = model<IStudent, UserModal>('Student', StudentSchema);
+export const Student = model<IStudent, StudentModal>('Student', StudentSchema);

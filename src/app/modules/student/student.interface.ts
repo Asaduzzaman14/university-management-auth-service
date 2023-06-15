@@ -45,4 +45,14 @@ export type IStudent = {
   academicSemester: Types.ObjectId | IAcademicSemister;
   profileImage?: string;
 };
-export type UserModal = Model<IStudent, Record<string, unknown>>;
+
+export type StudentModal = Model<IStudent, Record<string, unknown>>;
+
+export type IStudentsFilters = {
+  searchTerm?: string;
+  id?: string;
+  gender?: string;
+  email?: string;
+  contaceNo?: string;
+  emergencyContactNo?: string;
+};
