@@ -12,7 +12,11 @@ router.post(
 );
 router.get('/:id', academicFacultyController.getFacultyById);
 
-router.patch('/:id', academicFacultyController.updateFacultyById);
+router.patch(
+  '/:id',
+  validateRequest(academicFacultyValidation.updatefacultyZodSchema),
+  academicFacultyController.updateFacultyById
+);
 
 router.delete('/:id', academicFacultyController.deleteFaculty);
 
