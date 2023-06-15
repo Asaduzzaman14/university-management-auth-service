@@ -25,6 +25,8 @@ const createStudent = async (
     student.academicSemester
   );
 
+  let newUserAllData = null;
+
   // generate student id
   const session = await mongoose.startSession();
   try {
@@ -46,6 +48,9 @@ const createStudent = async (
     if (!newUser.length) {
       throw new ApiError(httpStatus.BAD_REQUEST, 'Failed To Create Student');
     }
+    console.log(newUser, '11111111');
+
+    newUserAllData = newUser[0];
 
     await session.commitTransaction();
     await session.endSession();
@@ -53,6 +58,21 @@ const createStudent = async (
     await session.abortTransaction();
     await session.endSession();
   }
+
+  // user --> student --> acadeicSemester, academicDepartrnt, academicFaculty
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'student',
+      populate: [
+        { path: 'academicSemester' },
+        { path: 'academicDepartment' },
+        { path: 'academicFaculty' },
+      ],
+    });
+  }
+
+  return newUserAllData;
 };
 
 //
