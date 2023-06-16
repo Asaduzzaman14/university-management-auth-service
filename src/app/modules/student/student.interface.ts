@@ -9,7 +9,7 @@ export type UserName = {
   middleName: string;
 };
 
-export type Gurdian = {
+export type Guardian = {
   fatherName: string;
   fatherOccupation: string;
   fatherContactNo: string;
@@ -37,7 +37,7 @@ export type IStudent = {
   bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
   presentAddress: string;
   permanentAddress: string;
-  guardian: Gurdian;
+  guardian: Guardian;
   address: string;
   localGuardian: LocalGuardian;
   academicFaculty: Types.ObjectId | IAcademicFaculty;

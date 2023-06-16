@@ -49,7 +49,7 @@ const updateStudent = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IStudent>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Student Retrieved Successfully',
+    message: 'Student Updated Successfully',
     data: result,
   });
 });

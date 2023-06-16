@@ -5,6 +5,8 @@ import { SortOrder } from 'mongoose';
 import { IStudent, IStudentsFilters } from './student.interface';
 import { studentSearchingFields } from './student.costant';
 import { Student } from './student.model';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
 
 // Get All Student Services
 const getAllStudents = async (
@@ -77,9 +79,54 @@ const updateStudent = async (
   id: string,
   paylode: Partial<IStudent>
 ): Promise<IStudent | null> => {
-  const result = await Student.findOneAndUpdate({ _id: id }, paylode, {
-    new: true,
-  });
+  const studentIsExist = await Student.findOne({ id });
+  if (!studentIsExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Studet not found');
+  }
+
+  const { name, guardian, localGuardian, ...studentData } = paylode;
+
+  const updatedStudentData: Partial<IStudent> = { ...studentData };
+
+  /* 
+const name = {
+  FirstName:"md"
+  lastName:"asad"
+}
+*/
+  if (name && Object.keys(name).length > 0) {
+    Object.keys(name).forEach(key => {
+      const nameKey = `name.${key}`; // name.firstName // name.lastName
+
+      (updatedStudentData as any)[nameKey] = name[key as keyof typeof name];
+    });
+  }
+
+  if (guardian && Object.keys(guardian).length > 0) {
+    Object.keys(guardian).forEach(key => {
+      const guardianKey = `guardian.${key}`; // name.firstName // name.lastName
+
+      (updatedStudentData as any)[guardianKey] =
+        guardian[key as keyof typeof name];
+    });
+  }
+
+  if (localGuardian && Object.keys(localGuardian).length > 0) {
+    Object.keys(localGuardian).forEach(key => {
+      const localGurdianKey = `localGuardian.${key}`; // name.firstName // name.lastName
+
+      (updatedStudentData as any)[localGurdianKey] =
+        localGuardian[key as keyof typeof name];
+    });
+  }
+
+  const result = await Student.findOneAndUpdate(
+    { id: id },
+    updatedStudentData,
+    {
+      new: true,
+    }
+  );
   return result;
 };
 
