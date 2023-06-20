@@ -13,28 +13,36 @@ const createStudent = async (
   student: IStudent,
   user: IUser
 ): Promise<IUser | null> => {
+  // console.log(student, 'student data');
+  // console.log(user, 'USER data');
+
   // default password
 
   if (!user.password) {
     user.password = config.default_student_pass as string;
   }
 
+  // set role
   user.role = 'student';
 
+  // get a semester for get role and year
   const academicSemester = await AcademicSemister.findById(
     student.academicSemester
   );
 
   let newUserAllData = null;
 
-  // generate student id
   const session = await mongoose.startSession();
   try {
     session.startTransaction();
+
+    // generate student id
     const id = await genarateStudentId(academicSemester);
     user.id = id;
     student.id = id;
+    console.log(user, student, 'user and studend data');
 
+    // array
     const newStudent = await Student.create([student], { session });
 
     if (!newStudent.length) {
@@ -46,9 +54,8 @@ const createStudent = async (
     const newUser = await User.create([user], { session });
 
     if (!newUser.length) {
-      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed To Create Student');
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Failed To Create User');
     }
-    console.log(newUser, '11111111');
 
     newUserAllData = newUser[0];
 
