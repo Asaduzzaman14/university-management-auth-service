@@ -1,13 +1,15 @@
 import { User } from './user.models';
 import { IUser } from './user.interface';
 import config from '../../../config';
-import { genarateStudentId } from './user.utils';
+import { genarateStudentId, generateFacultyId } from './user.utils';
 import ApiError from '../../../errors/ApiError';
 import { IStudent } from '../student/student.interface';
 import { AcademicSemister } from '../academicSemester/academicSemesterModal';
 import mongoose from 'mongoose';
 import { Student } from '../student/student.model';
 import httpStatus from 'http-status';
+import { IFaculty } from '../facultyies/faculty.interface';
+import { Faculty } from '../facultyies/faculty.model';
 
 const createStudent = async (
   student: IStudent,
@@ -40,7 +42,7 @@ const createStudent = async (
     const id = await genarateStudentId(academicSemester);
     user.id = id;
     student.id = id;
-    console.log(user, student, 'user and studend data');
+    // console.log(user, student, 'user and studend data');
 
     // array
     const newStudent = await Student.create([student], { session });
@@ -82,7 +84,74 @@ const createStudent = async (
   return newUserAllData;
 };
 
-//
+//*************** */
+// create student end
+//*************** */
+
+// Create Faculty and user
+
+const createFaculty = async (
+  faculty: IFaculty,
+  user: IUser
+): Promise<IUser | null> => {
+  // set default password
+  if (!user.password) {
+    user.password = config.default_faculty_pass as string;
+  }
+
+  // set role
+  user.role = 'faculty';
+
+  let newUserAllData = null;
+
+  const session = await mongoose.startSession();
+
+  try {
+    session.startTransaction();
+
+    const id = await generateFacultyId();
+    user.id = id as string;
+    faculty.id = id as string;
+
+    const newFaculty = await Faculty.create([faculty], { session });
+
+    if (!newFaculty.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Faield to create faculty');
+    }
+
+    user.faculty = newFaculty[0]._id;
+    const newUser = await User.create([user], { session });
+
+    if (!newUser.length) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Faield to create user');
+    }
+
+    newUserAllData = newUser[0];
+
+    await session.commitTransaction();
+    await session.endSession();
+  } catch (error) {
+    await session.abortTransaction();
+    await session.endSession();
+  }
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'faculty',
+      populate: [
+        {
+          path: 'academicDepartment',
+        },
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    });
+  }
+  return newUserAllData;
+};
+
 export const UserService = {
   createStudent,
+  createFaculty,
 };
