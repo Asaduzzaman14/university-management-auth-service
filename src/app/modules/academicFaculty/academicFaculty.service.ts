@@ -75,9 +75,17 @@ const getSingleFaculty = async (
 };
 
 const updateFacultyById = async (
-  id: string
+  id: string,
+  paylode: IAcademicFaculty
 ): Promise<IAcademicFaculty | null> => {
-  const result = await AcademicFaculty.findByIdAndUpdate(id);
+  const result = await AcademicFaculty.findByIdAndUpdate({ _id: id }, paylode, {
+    new: true,
+  });
+  return result;
+};
+
+const deleteFaculty = async (id: string): Promise<IAcademicFaculty | null> => {
+  const result = await AcademicFaculty.findByIdAndDelete(id);
   return result;
 };
 
@@ -86,4 +94,5 @@ export const AcademicFacultyService = {
   getAllFacultys,
   getSingleFaculty,
   updateFacultyById,
+  deleteFaculty,
 };

@@ -61,7 +61,12 @@ const getFacultyById = catchAsync(async (req: Request, res: Response) => {
 // update faculty
 const updateFacultyById = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
-  const result = await AcademicFacultyService.updateFacultyById(id);
+  const updatedData = req.body;
+
+  const result = await AcademicFacultyService.updateFacultyById(
+    id,
+    updatedData
+  );
 
   sendResponse<IAcademicFaculty>(res, {
     statusCode: httpStatus.OK,
@@ -71,9 +76,24 @@ const updateFacultyById = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const academicFacultyController = {
+// Delete faculty
+const deleteFaculty = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = await AcademicFacultyService.deleteFaculty(id);
+
+  sendResponse<IAcademicFaculty>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'faculty deleted Successfully',
+    data: result,
+  });
+});
+
+export const AcademicFacultyController = {
   createFaculty,
   getAllFacultys,
   getFacultyById,
   updateFacultyById,
+  deleteFaculty,
 };

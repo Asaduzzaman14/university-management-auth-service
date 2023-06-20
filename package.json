@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc",
     "lint:fix": "eslint --fix",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "pretter:fix": "pretter --write .",
