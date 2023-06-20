@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { AcademicSemesterService } from './academicSemister.service';
 import catchAsync from '../../../shared/catchAsync';
 import httpStatus from 'http-status';
-import sendResponse from '../../../shared/sendResponst';
+import sendResponse from '../../../shared/sendResponse';
 import pick from '../../../shared/pick';
 import { paginationKeys } from '../../../constants/pagination';
 import { academicSemesterFiltareableFields } from './academicSemister.constant';

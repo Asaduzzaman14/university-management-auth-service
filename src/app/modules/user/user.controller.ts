@@ -1,7 +1,7 @@
 import { Request, RequestHandler, Response } from 'express';
 import { UserService } from './user.service';
 import catchAsync from '../../../shared/catchAsync';
-import sendResponse from '../../../shared/sendResponst';
+import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
 
 const createStudentController: RequestHandler = catchAsync(

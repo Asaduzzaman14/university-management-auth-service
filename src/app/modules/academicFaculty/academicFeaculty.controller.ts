@@ -1,6 +1,6 @@
 import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
-import sendResponse from '../../../shared/sendResponst';
+import sendResponse from '../../../shared/sendResponse';
 import { AcademicFacultyService } from './academicFaculty.service';
 import { Request, Response } from 'express';
 import { IAcademicFaculty } from './academicFaculty.interface';
