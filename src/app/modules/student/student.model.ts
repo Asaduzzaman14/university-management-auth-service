@@ -21,7 +21,6 @@ export const StudentSchema = new Schema<IStudent, StudentModal>(
         },
         middleName: {
           type: String,
-          required: false,
         },
       },
       required: true,
