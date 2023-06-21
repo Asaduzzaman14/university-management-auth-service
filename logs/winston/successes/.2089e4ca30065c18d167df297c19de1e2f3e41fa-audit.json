@@ -189,6 +189,11 @@
             "date": 1687339187045,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-21-06-15-success.log",
             "hash": "3c17e4122cac0a6ccb8f69a6e394e7bb1e5ebd650ade61f70f6192b98731aa90"
+        },
+        {
+            "date": 1687342271885,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-21-06-16-success.log",
+            "hash": "cda5983068242aa030ad362c1090dac51ae2efbe87a9e786c865f3997cf18674"
         }
     ],
     "hashType": "sha256"
