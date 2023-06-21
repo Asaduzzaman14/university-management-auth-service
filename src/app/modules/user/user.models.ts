@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose';
-import { IUser, UserModal } from './user.interface';
+import { IUser, IUserMethods, UserModal } from './user.interface';
 import bcrypt from 'bcrypt';
 import config from '../../../config';
 
 //  Create a Schema corresponding to the document interface.
-const userSchema = new Schema<IUser>(
+const userSchema = new Schema<IUser, Record<string, never>, IUserMethods>(
   {
     id: {
       type: String,
@@ -18,6 +18,11 @@ const userSchema = new Schema<IUser>(
     password: {
       type: String,
       required: true,
+      select: 0,
+    },
+    needsPasswordChange: {
+      type: Boolean,
+      default: true,
     },
     student: {
       type: Schema.Types.ObjectId,
@@ -40,6 +45,27 @@ const userSchema = new Schema<IUser>(
   }
 );
 
+// find user on database for login
+userSchema.methods.isUserExist = async function (
+  id: string
+): Promise<Partial<IUser | null>> {
+  const user = await User.findOne(
+    { id },
+    { id: 1, needsPasswordChange: 1, password: 1 }
+  );
+
+  return user;
+};
+
+// check login password and database password
+userSchema.methods.isPasswordMatch = async function (
+  providedPassword: string,
+  previewsPass: string
+): Promise<boolean> {
+  return await bcrypt.compare(providedPassword, previewsPass);
+};
+
+// hashing password before save document
 userSchema.pre('save', async function (next) {
   // eslint-disable-next-line @typescript-eslint/no-this-alias
   const user = this;
