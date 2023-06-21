@@ -11,6 +11,8 @@ import httpStatus from 'http-status';
 import { IFaculty } from '../facultyies/faculty.interface';
 import { Faculty } from '../facultyies/faculty.model';
 
+import bcrypt from 'bcrypt';
+
 const createStudent = async (
   student: IStudent,
   user: IUser
@@ -23,6 +25,12 @@ const createStudent = async (
   if (!user.password) {
     user.password = config.default_student_pass as string;
   }
+  // hash password
+
+  user.password = await bcrypt.hash(
+    user.password,
+    Number(config.bycrypt_solt_rounds)
+  );
 
   // set role
   user.role = 'student';
