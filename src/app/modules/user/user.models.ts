@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose';
-import { IUser, IUserMethods, UserModal } from './user.interface';
+import { IUser, UserModal } from './user.interface';
 import bcrypt from 'bcrypt';
 import config from '../../../config';
 
 //  Create a Schema corresponding to the document interface.
-const userSchema = new Schema<IUser, Record<string, never>, IUserMethods>(
+const userSchema = new Schema<IUser, UserModal>(
   {
     id: {
       type: String,
@@ -45,20 +45,20 @@ const userSchema = new Schema<IUser, Record<string, never>, IUserMethods>(
   }
 );
 
-// find user on database for login
-userSchema.methods.isUserExist = async function (
+userSchema.statics.isUserExist = async function (
   id: string
-): Promise<Partial<IUser | null>> {
+): Promise<Pick<
+  IUser,
+  'id' | 'role' | 'password' | 'needsPasswordChange'
+> | null> {
   const user = await User.findOne(
     { id },
     { id: 1, needsPasswordChange: 1, password: 1 }
   );
-
   return user;
 };
 
-// check login password and database password
-userSchema.methods.isPasswordMatch = async function (
+userSchema.statics.isPasswordMatch = async function (
   providedPassword: string,
   previewsPass: string
 ): Promise<boolean> {
@@ -78,3 +78,23 @@ userSchema.pre('save', async function (next) {
 });
 
 export const User = model<IUser, UserModal>('User', userSchema);
+
+// find user on database for login
+// userSchema.methods.isUserExist = async function (
+//   id: string
+// ): Promise<Partial<IUser | null>> {
+//   const user = await User.findOne(
+//     { id },
+//     { id: 1, needsPasswordChange: 1, password: 1 }
+//   );
+
+//   return user;
+// };
+
+// check login password and database password
+// userSchema.methods.isPasswordMatch = async function (
+//   providedPassword: string,
+//   previewsPass: string
+// ): Promise<boolean> {
+//   return await bcrypt.compare(providedPassword, previewsPass);
+// };

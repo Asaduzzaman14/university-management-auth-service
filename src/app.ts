@@ -5,9 +5,12 @@ import cors from 'cors';
 import globalErrorHandler from './app/middlewares/globalErrorhandler';
 import router from './app/routes';
 import httpStatus from 'http-status';
+import cookieParser from 'cookie-parser';
 
 // parser
 app.use(cors());
+app.use(cookieParser());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Add this line to parse JSON data
 
