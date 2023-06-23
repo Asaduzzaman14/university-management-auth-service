@@ -10,7 +10,7 @@ const createStudentController: RequestHandler = catchAsync(
     const { student, ...userData } = req.body;
     const result = await UserService.createStudent(student, userData);
 
-    sendResponse(res, {
+    sendResponse<IUser>(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: 'User and Student Created Successfully',
