@@ -38,8 +38,6 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
 
   const result = await AuthService.refreshToken(refreshToken);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
   // set refresh token into cookie
 
   const cookieOptions = {
@@ -47,8 +45,6 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
     httpOnly: true,
   };
   res.cookie('refreshToken', refreshToken, cookieOptions);
-
-  // delete result.refreshToken
 
   sendResponse<IRefreshTokenResponse>(res, {
     statusCode: httpStatus.OK,

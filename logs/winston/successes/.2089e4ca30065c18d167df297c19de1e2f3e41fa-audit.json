@@ -209,6 +209,21 @@
             "date": 1687512650268,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-23-06-15-success.log",
             "hash": "234b4dff2319b54c676a1ac044221ce213737dbb6c3b3f8e26e297da3b18f8c9"
+        },
+        {
+            "date": 1687592881256,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-24-06-13-success.log",
+            "hash": "051c616719934b1a69385f96d674254603a1a0fffcef138290d3611455b7d8eb"
+        },
+        {
+            "date": 1687593924127,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-24-06-14-success.log",
+            "hash": "1e605760670f0893c32e147106bdbbce9a0cdc57cd1a5da9edd0542e6fb5a694"
+        },
+        {
+            "date": 1687597331018,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-24-06-15-success.log",
+            "hash": "a6f2cfcc5d5174613f4fbc98d682c37f8f099d96d7442c1977a0e06128406656"
         }
     ],
     "hashType": "sha256"
