@@ -12,7 +12,7 @@ import { Secret } from 'jsonwebtoken';
 // }
 
 const auth =
-  (...RequiredRoles: string[]) =>
+  (...requiredRoles: string[]) =>
   async (req: Request, Response: Response, next: NextFunction) => {
     try {
       // get authorization token
@@ -33,6 +33,10 @@ const auth =
 
       req.user = verifyUser; // role, userId
       console.log(verifyUser, '111111');
+
+      if (requiredRoles.length && !requiredRoles.includes(verifyUser.role)) {
+        throw new ApiError(httpStatus.FORBIDDEN, 'Forbidden');
+      }
 
       next();
     } catch (error) {

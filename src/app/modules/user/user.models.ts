@@ -53,7 +53,7 @@ userSchema.statics.isUserExist = async function (
 > | null> {
   const user = await User.findOne(
     { id },
-    { id: 1, needsPasswordChange: 1, password: 1 }
+    { id: 1, role: 1, needsPasswordChange: 1, password: 1 }
   );
   return user;
 };
