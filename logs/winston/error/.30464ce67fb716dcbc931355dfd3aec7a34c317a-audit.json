@@ -6,146 +6,6 @@
     "auditLog": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\.30464ce67fb716dcbc931355dfd3aec7a34c317a-audit.json",
     "files": [
         {
-            "date": 1686497990747,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-11-06-21-error.log",
-            "hash": "8b5d10f70cd74cd48ab98221e976eb9ae414d905d347ab140095f74a8df62019"
-        },
-        {
-            "date": 1686500123938,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-11-06-22-error.log",
-            "hash": "3ca791338dc6a01f657385ea1477816df77683213442685d2ec5c4bed6a8c55f"
-        },
-        {
-            "date": 1686504555763,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-11-06-23-error.log",
-            "hash": "fb425c48da9c825ae6aaf6fed5e39e8e6ac96886c7744f06d2b39da940db6748"
-        },
-        {
-            "date": 1686511502644,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-01-error.log",
-            "hash": "4e295b0eab1e72954bf53703560a5f1dc92e4b2b0f59120b451beb68728adbbf"
-        },
-        {
-            "date": 1686556460698,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-13-error.log",
-            "hash": "68ba5bf6940a598b484b27a4c3ec21f05bb3059f9a0043a74707f74a83ef3f49"
-        },
-        {
-            "date": 1686561307104,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-15-error.log",
-            "hash": "3258cf541eea917cb72331d363a0ad641fe098aff068aa53f44aaeba919976b2"
-        },
-        {
-            "date": 1686564003994,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-16-error.log",
-            "hash": "51a5ec1ed27a5e6ca6e03f866d208399b8460f37907bfd4a8500a71598ce1ce2"
-        },
-        {
-            "date": 1686567987821,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-17-error.log",
-            "hash": "1f621a08b5238c881c211a4e28a66105ba21c291a17524bb9d9de54787094773"
-        },
-        {
-            "date": 1686571443815,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-18-error.log",
-            "hash": "0ebaca4dc9078fab436ced742f1ab09e4a7b8c32f478a40063ac0d7c14bdd8b1"
-        },
-        {
-            "date": 1686575592039,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-19-error.log",
-            "hash": "fd84c7c832f0a8ef2ed3636db5627eaec24426663f335f7a97c2e5a376a8b4b4"
-        },
-        {
-            "date": 1686587258971,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-22-error.log",
-            "hash": "19e961946750624b8c318dbf294d04bf2e9061291efa641135eddedc8ffaa3c2"
-        },
-        {
-            "date": 1686592394567,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-12-06-23-error.log",
-            "hash": "85d63aac3f835da1e1d43713af5b4fc8878ca1031684585b98b163e50080979b"
-        },
-        {
-            "date": 1686648561558,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-13-06-15-error.log",
-            "hash": "5f6f4dd74f45e5dd86ba3085ec27b41a23ba37aa2003aa720bc431e006a69af1"
-        },
-        {
-            "date": 1686650408222,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-13-06-16-error.log",
-            "hash": "bcec76ea28f95c9efcd7e924d365088319529ce593888a7656d30ef452546f1e"
-        },
-        {
-            "date": 1686654002812,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-13-06-17-error.log",
-            "hash": "4c1cc24d032af4764012c8cf03b429b4da5d5440e0ee5f3e79700f2658d9e687"
-        },
-        {
-            "date": 1686658888964,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-13-06-18-error.log",
-            "hash": "29d02ced3619d6e8966770ada1c7d14837ee03020ea1661d6eade5154f60e09c"
-        },
-        {
-            "date": 1686680883346,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-14-06-00-error.log",
-            "hash": "74482b02f365b9b04b24d03b5f9de1f666d5e2b33fc854dfc4136e1436f9ff49"
-        },
-        {
-            "date": 1686736663454,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-14-06-15-error.log",
-            "hash": "b1c7ab950e8eb37cde94696c82216b06e0e1b533bfcffb9cc682171b07546c21"
-        },
-        {
-            "date": 1686736840651,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-14-06-16-error.log",
-            "hash": "4b16b48da651b3f7930a2ce53c55610a7fe0321abac307d0d67a45b7ce590c09"
-        },
-        {
-            "date": 1686747907522,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-14-06-19-error.log",
-            "hash": "ce34a3158d0575eb25d4f985743f931dbed05aa3b836ddf0a117c5ad39fd53e7"
-        },
-        {
-            "date": 1686756309103,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-14-06-21-error.log",
-            "hash": "4884dc5fe4a66795375c53159846e2d9f898cc1e8652ed1d828a14b144b207c4"
-        },
-        {
-            "date": 1686763597869,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-14-06-23-error.log",
-            "hash": "ad287c9644e7477315b3e044e546ee816227d39568dcaac3018785501d6de7d9"
-        },
-        {
-            "date": 1686826740033,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-15-06-16-error.log",
-            "hash": "da30e40950e2dfe03942ea62cf27aad175cbdb5fe081afc0487964675fc9c5e7"
-        },
-        {
-            "date": 1686827071853,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-15-06-17-error.log",
-            "hash": "cfdb7e46622429402b4cc26b76612f5549e8d5943ed1b4aa7feada374bc95750"
-        },
-        {
-            "date": 1686893780385,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-16-06-11-error.log",
-            "hash": "aad22c893d336eee07a14469569d0ec1ecccf90f6b3601bdbe4334b19edbc561"
-        },
-        {
-            "date": 1686904705294,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-16-06-14-error.log",
-            "hash": "1e2c77424c865aeaa9cba4fcdf638f7edffcea4e0595b0160a8537633f347345"
-        },
-        {
-            "date": 1686914075491,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-16-06-17-error.log",
-            "hash": "e40e27876d26cf2aff3fc13cb2e4e7648328a841ced6b8e8cbb283e8c21c3fda"
-        },
-        {
-            "date": 1687062771027,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-18-06-10-error.log",
-            "hash": "b31db3d0c6a2ec9b6768fce892fc18921d7d70bd6c5beceada8e118858f8adbd"
-        },
-        {
             "date": 1687196274634,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-19-06-23-error.log",
             "hash": "386e96d6c38e468e125061a59d41ee3852f90ca44adeb5d5c5f8188802acbb57"
@@ -229,6 +89,16 @@
             "date": 1687623365391,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-24-06-22-error.log",
             "hash": "ec67a868be3f7514d2439c8c622f8db977b88d2bd04ba9be10103886954716d8"
+        },
+        {
+            "date": 1688223433513,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-01-07-20-error.log",
+            "hash": "9527f25813af01ae83aba00879d6ff574b421bf0240ed9af01d028feeb641fcc"
+        },
+        {
+            "date": 1688310341370,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-02-07-21-error.log",
+            "hash": "c0647f6cd7df05810e995225a54b11c9af16170dfd220b253eb818442a544286"
         }
     ],
     "hashType": "sha256"
