@@ -1,6 +1,6 @@
 import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
-import sendResponse from '../../../shared/sendResponst';
+import sendResponse from '../../../shared/sendResponse';
 import { AcademicFacultyService } from './academicFaculty.service';
 import { Request, Response } from 'express';
 import { IAcademicFaculty } from './academicFaculty.interface';
@@ -26,6 +26,9 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
 
 // get all faculty
 const getAllFacultys = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.headers.authorization);
+  console.log(req.user);
+
   const query = req.query;
 
   const paginationOptions = pick(query, paginationKeys);
