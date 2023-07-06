@@ -88,19 +88,20 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
 };
 
 const passwordChange = async (
-  user: JwtPayload,
+  user: JwtPayload | null,
   paylode: IChagePassword
-): Promise<null> => {
+): Promise<void> => {
   const { oldPassword, newPassword } = paylode;
 
-  // checking is user exist
-  const isUserExist = await User.isUserExist(user.userId);
+  // Step 1 -> checking is user exist
+  const isUserExist = await User.isUserExist(user?.userId);
+  console.log(user);
 
   if (!isUserExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User does not found');
   }
 
-  // checking old password
+  //  Step 2 -> checking old password
 
   if (
     isUserExist.password &&
@@ -109,11 +110,23 @@ const passwordChange = async (
     throw new ApiError(httpStatus.UNAUTHORIZED, 'Old password is incorrect');
   }
 
-  // hash password before save new password
+  //  Step 3 -> hash password before save new password
 
-  const newHashedPassword = await bcrypt;
+  const newHashedPassword = await bcrypt.hash(
+    newPassword,
+    Number(config.bycrypt_solt_rounds)
+  );
 
-  return {};
+  //  Step 4 -> update password
+
+  const query = { id: user?.userId };
+  const updatedDate = {
+    password: newHashedPassword,
+    needsPasswordChange: false,
+    passwordChangedAt: new Date(),
+  };
+
+  await User.findOneAndUpdate(query, updatedDate);
 };
 
 export const AuthService = {

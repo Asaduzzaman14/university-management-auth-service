@@ -6,66 +6,6 @@
     "auditLog": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\.30464ce67fb716dcbc931355dfd3aec7a34c317a-audit.json",
     "files": [
         {
-            "date": 1687196274634,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-19-06-23-error.log",
-            "hash": "386e96d6c38e468e125061a59d41ee3852f90ca44adeb5d5c5f8188802acbb57"
-        },
-        {
-            "date": 1687197815415,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-20-06-00-error.log",
-            "hash": "2edad136b53d60638fe39a25fbf8e7ce08b6a5374931977c543cf3cd83780d39"
-        },
-        {
-            "date": 1687277537032,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-20-06-22-error.log",
-            "hash": "761a91a09ba08f3735583cb0ede184265bde24f8becafe0f2fe50886f977e9f6"
-        },
-        {
-            "date": 1687281593662,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-20-06-23-error.log",
-            "hash": "2a80f5de97cda9bd4d12f6a5929807f79814378373d57353e4482e6f2fbfd021"
-        },
-        {
-            "date": 1687286891441,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-21-06-00-error.log",
-            "hash": "2514dc34406d5a2ef49c23b14fc0be023c8da253db62090558c1307fbef3bafc"
-        },
-        {
-            "date": 1687287623217,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-21-06-01-error.log",
-            "hash": "c29f08d36e157fa9d82439c26e54bf7015116576bfc991f5d161c9d073f262a6"
-        },
-        {
-            "date": 1687291406712,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-21-06-02-error.log",
-            "hash": "4f0a04a312063bc0bfa1e01783f9b3aeb84977df0fb375fe2ddd57542d1ba11f"
-        },
-        {
-            "date": 1687336183514,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-21-06-14-error.log",
-            "hash": "a402f927f2e81ac152ba9b439d48530f5412cd35517c5873559acc11c448743e"
-        },
-        {
-            "date": 1687339187052,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-21-06-15-error.log",
-            "hash": "74d119b3de2fd1f81ac755696c835055c2e6b877b1ea09cabf070aa8ecea1dba"
-        },
-        {
-            "date": 1687342271889,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-21-06-16-error.log",
-            "hash": "10264279c2ec509542986d16c7025f5f929d2121e4fdcacdb58b799b8e630b93"
-        },
-        {
-            "date": 1687428106975,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-22-06-16-error.log",
-            "hash": "ded0b3f9aec1ed0dab2aaef196d2f493d1def16878f57ebd37f93a144418a6ca"
-        },
-        {
-            "date": 1687449923520,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-22-06-22-error.log",
-            "hash": "27daf9d3c30721021f0b47df52462bef69ee867d7463dea646f657a08d1601f5"
-        },
-        {
             "date": 1687512650294,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-23-06-15-error.log",
             "hash": "0ab8aa92063df8d9c00e63ce1c3c8508c29dd34af250dc1208038eb7d736be6f"
@@ -99,6 +39,11 @@
             "date": 1688310341370,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-02-07-21-error.log",
             "hash": "c0647f6cd7df05810e995225a54b11c9af16170dfd220b253eb818442a544286"
+        },
+        {
+            "date": 1688665249150,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\error\\UM-2023-06-07-23-error.log",
+            "hash": "12ddb25baf135e9b1e84d460f8b44de979781b5907c3cc76f951fe4385993c68"
         }
     ],
     "hashType": "sha256"

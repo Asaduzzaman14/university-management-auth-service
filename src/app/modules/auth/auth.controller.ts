@@ -58,12 +58,13 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
 
 const changePassword = catchAsync(async (req: Request, res: Response) => {
   const user = req.user;
+  console.log(user);
 
   const { ...passwordData } = req.body;
 
   const result = await AuthService.passwordChange(user, passwordData);
 
-  sendResponse<IloginUserResponse>(res, {
+  sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Password change successfully',
