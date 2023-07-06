@@ -3,12 +3,14 @@ import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import { User } from '../user/user.models';
 import {
+  IChagePassword,
   ILoginUser,
   IRefreshTokenResponse,
   IloginUserResponse,
 } from './auth.interface';
-import { Secret } from 'jsonwebtoken';
+import { JwtPayload, Secret } from 'jsonwebtoken';
 import config from '../../../config';
+import bcrypt from 'bcrypt';
 
 const loginUser = async (payload: ILoginUser): Promise<IloginUserResponse> => {
   const { id, password } = payload;
@@ -85,7 +87,37 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
   };
 };
 
+const passwordChange = async (
+  user: JwtPayload,
+  paylode: IChagePassword
+): Promise<null> => {
+  const { oldPassword, newPassword } = paylode;
+
+  // checking is user exist
+  const isUserExist = await User.isUserExist(user.userId);
+
+  if (!isUserExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User does not found');
+  }
+
+  // checking old password
+
+  if (
+    isUserExist.password &&
+    !(await User.isPasswordMatch(oldPassword, isUserExist.password))
+  ) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Old password is incorrect');
+  }
+
+  // hash password before save new password
+
+  const newHashedPassword = await bcrypt;
+
+  return {};
+};
+
 export const AuthService = {
   loginUser,
   refreshToken,
+  passwordChange,
 };

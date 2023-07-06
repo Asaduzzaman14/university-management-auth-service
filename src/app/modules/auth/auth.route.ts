@@ -16,6 +16,12 @@ router.post(
   AuthController.refreshToken
 );
 
+router.post(
+  '/change-password',
+  validateRequest(AuthValidation.changePasswordZodSchema),
+  AuthController.changePassword
+);
+
 // router.get('/', AdminController.getAllAdmins);
 
 // router.delete('/:id', AdminController.deleteAdmin);
