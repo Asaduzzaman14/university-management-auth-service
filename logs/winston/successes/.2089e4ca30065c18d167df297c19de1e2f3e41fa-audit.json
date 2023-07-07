@@ -6,11 +6,6 @@
     "auditLog": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\.2089e4ca30065c18d167df297c19de1e2f3e41fa-audit.json",
     "files": [
         {
-            "date": 1687512650268,
-            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-23-06-15-success.log",
-            "hash": "234b4dff2319b54c676a1ac044221ce213737dbb6c3b3f8e26e297da3b18f8c9"
-        },
-        {
             "date": 1687592881256,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-24-06-13-success.log",
             "hash": "051c616719934b1a69385f96d674254603a1a0fffcef138290d3611455b7d8eb"
@@ -44,6 +39,11 @@
             "date": 1688665249111,
             "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-06-07-23-success.log",
             "hash": "e720d99165bb03e6381e8b7164b3e2a83536f68c9c8ccf470bdc19bc602be24b"
+        },
+        {
+            "date": 1688725247400,
+            "name": "D:\\Aapollo\\university-managment-auth\\logs\\winston\\successes\\UM-2023-07-07-16-success.log",
+            "hash": "1c61d381a8dafe213723a0c85e7cf2cbbc659968e5907f9f44f46d9f1536006a"
         }
     ],
     "hashType": "sha256"

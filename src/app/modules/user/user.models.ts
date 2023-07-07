@@ -69,6 +69,7 @@ userSchema.statics.isPasswordMatch = async function (
 };
 
 // hashing password before save document
+// user.create() // user.save()
 userSchema.pre('save', async function (next) {
   // eslint-disable-next-line @typescript-eslint/no-this-alias
   const user = this;
@@ -77,6 +78,10 @@ userSchema.pre('save', async function (next) {
     user.password,
     Number(config.bycrypt_solt_rounds)
   );
+
+  if (!user.needsPasswordChange) {
+    user.passwordChangedAt = new Date();
+  }
   next();
 });
 

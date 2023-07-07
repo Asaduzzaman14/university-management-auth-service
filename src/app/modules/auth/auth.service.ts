@@ -87,6 +87,48 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
   };
 };
 
+// const passwordChange = async (
+//   user: JwtPayload | null,
+//   paylode: IChagePassword
+// ): Promise<void> => {
+//   const { oldPassword, newPassword } = paylode;
+
+//   // Step 1 -> checking is user exist
+//   const isUserExist = await User.isUserExist(user?.userId);
+//   console.log(user);
+
+//   if (!isUserExist) {
+//     throw new ApiError(httpStatus.NOT_FOUND, 'User does not found');
+//   }
+
+//   //  Step 2 -> checking old password
+
+//   if (
+//     isUserExist.password &&
+//     !(await User.isPasswordMatch(oldPassword, isUserExist.password))
+//   ) {
+//     throw new ApiError(httpStatus.UNAUTHORIZED, 'Old password is incorrect');
+//   }
+
+//   //  Step 3 -> hash password before save new password
+
+//   const newHashedPassword = await bcrypt.hash(
+//     newPassword,
+//     Number(config.bycrypt_solt_rounds)
+//   );
+
+//   //  Step 4 -> update password
+
+//   const query = { id: user?.userId };
+//   const updatedDate = {
+//     password: newHashedPassword,
+//     needsPasswordChange: false,
+//     passwordChangedAt: new Date(),
+//   };
+
+//   await User.findOneAndUpdate(query, updatedDate);
+// };
+
 const passwordChange = async (
   user: JwtPayload | null,
   paylode: IChagePassword
@@ -94,11 +136,15 @@ const passwordChange = async (
   const { oldPassword, newPassword } = paylode;
 
   // Step 1 -> checking is user exist
-  const isUserExist = await User.isUserExist(user?.userId);
-  console.log(user);
+  // alternative way to change password
+
+  const isUserExist = await User.findOne({ id: user?.userId }).select(
+    '+password'
+  );
+  console.log(isUserExist, 'this is user');
 
   if (!isUserExist) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'User does not found');
+    throw new ApiError(httpStatus.NOT_FOUND, 'User does not exist');
   }
 
   //  Step 2 -> checking old password
@@ -112,21 +158,23 @@ const passwordChange = async (
 
   //  Step 3 -> hash password before save new password
 
-  const newHashedPassword = await bcrypt.hash(
-    newPassword,
-    Number(config.bycrypt_solt_rounds)
-  );
+  // const newHashedPassword = await bcrypt.hash(
+  //   newPassword,
+  //   Number(config.bycrypt_solt_rounds)
+  // );
 
-  //  Step 4 -> update password
+  // //  Step 4 -> update password
 
-  const query = { id: user?.userId };
-  const updatedDate = {
-    password: newHashedPassword,
-    needsPasswordChange: false,
-    passwordChangedAt: new Date(),
-  };
+  // const query = { id: user?.userId };
+  // const updatedDate = {
+  //   password: newHashedPassword,
+  //   needsPasswordChange: false,
+  //   passwordChangedAt: new Date(),
+  // };
 
-  await User.findOneAndUpdate(query, updatedDate);
+  // await User.findOneAndUpdate(query, updatedDate);
+
+  // update password using save method
 };
 
 export const AuthService = {
