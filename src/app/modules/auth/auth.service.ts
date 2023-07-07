@@ -10,7 +10,7 @@ import {
 } from './auth.interface';
 import { JwtPayload, Secret } from 'jsonwebtoken';
 import config from '../../../config';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 
 const loginUser = async (payload: ILoginUser): Promise<IloginUserResponse> => {
   const { id, password } = payload;
@@ -174,7 +174,11 @@ const passwordChange = async (
 
   // await User.findOneAndUpdate(query, updatedDate);
 
+  isUserExist.password = newPassword;
+  isUserExist.needsPasswordChange = false;
+
   // update password using save method
+  isUserExist.save();
 };
 
 export const AuthService = {
