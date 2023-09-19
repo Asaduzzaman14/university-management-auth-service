@@ -8,7 +8,7 @@ import {
 } from './user.utils';
 import ApiError from '../../../errors/ApiError';
 import { IStudent } from '../student/student.interface';
-import { AcademicSemister } from '../academicSemester/academicSemesterModal';
+import { AcademicSemister } from '../academicSemester/academicSemester.modal';
 import mongoose from 'mongoose';
 import { Student } from '../student/student.model';
 import httpStatus from 'http-status';

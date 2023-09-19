@@ -1,10 +1,11 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import {
+  IAcademicSemesterCreatedEvent,
   IAcademicSemesterFilters,
   IAcademicSemister,
 } from './academicSemester.Interface';
-import { AcademicSemister } from './academicSemesterModal';
+import { AcademicSemister } from './academicSemester.modal';
 import {
   academicSemesterSearchingFields,
   academicSemesterTitleCodeMapper,
@@ -134,10 +135,25 @@ const deleteSemester = async (
   return result;
 };
 
+// Create semester service
+const createSemesterFromEvent = async (
+  e: IAcademicSemesterCreatedEvent
+): Promise<void> => {
+  await AcademicSemister.create({
+    title: e.title,
+    year: e.year,
+    code: e.code,
+    startMonth: e.startMonth,
+    endMonth: e.endMonth,
+    syncId: e.id,
+  });
+};
+
 export const AcademicSemesterService = {
   createSemester,
   getAllSemesters,
   getSingleSemester,
   updateSemester,
   deleteSemester,
+  createSemesterFromEvent,
 };
