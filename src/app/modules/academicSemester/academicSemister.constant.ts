@@ -47,3 +47,5 @@ export const academicSemesterFiltareableFields = [
   'code',
   'year',
 ];
+
+export const EVENT_ACADEMIC_SEMESTER_CREATED = 'academic-semester.crated';
