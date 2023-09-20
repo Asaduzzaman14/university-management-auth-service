@@ -1,0 +1,22 @@
+Wed Sep 20 2023 22 459 [UM] error: Cast to string failed for value "{
+  id: '057d712a-3a90-4eef-aa44-92cde7a6491e',
+  year: 2000,
+  title: 'Summer',
+  code: '02',
+  startMonth: 'January',
+  endMonth: 'June',
+  isCurrent: false,
+  createdAt: '2023-09-19T15:36:02.966Z',
+  updatedAt: '2023-09-19T15:36:02.966Z'
+}" (type Object) at path "syncId" for model "AcademicSemister"
+Wed Sep 20 2023 22 4931 [UM] error: Cast to string failed for value "{
+  id: '301091b3-0a72-49a4-bc03-b2d7c9e099d2',
+  year: 2000,
+  title: 'Summer',
+  code: '02',
+  startMonth: 'January',
+  endMonth: 'June',
+  isCurrent: false,
+  createdAt: '2023-09-20T16:49:15.208Z',
+  updatedAt: '2023-09-20T16:49:15.208Z'
+}" (type Object) at path "syncId" for model "AcademicSemister"
