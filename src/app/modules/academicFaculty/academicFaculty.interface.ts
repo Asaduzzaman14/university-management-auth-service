@@ -13,4 +13,16 @@ export type IAcademicFacultyFilters = {
   searchTerm?: string;
 };
 
-// done
+export type AcademicFacultyCreatedEvent = {
+  id: string;
+  title: string;
+};
+
+export type AcademicFacultyUpdatedEvent = {
+  id: string;
+  title: string;
+};
+
+export type AcademicFacultyDeletedEvent = {
+  id: string;
+};

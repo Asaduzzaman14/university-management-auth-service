@@ -89,10 +89,36 @@ const deleteFaculty = async (id: string): Promise<IAcademicFaculty | null> => {
   return result;
 };
 
+// Create semester service
+const createFacultyFromEvent = async (e: any): Promise<void> => {
+  await AcademicFaculty.create({
+    title: e.title,
+    syncId: e.id,
+  });
+};
+
+const updateFacultyFromEvent = async (e: any): Promise<void> => {
+  await AcademicFaculty.findOneAndUpdate(
+    { syncId: e.id },
+    {
+      $set: {
+        title: e.title,
+      },
+    }
+  );
+};
+
+const deleteFacultyEvent = async (syncId: string): Promise<void> => {
+  await AcademicFaculty.findOneAndDelete({ syncId });
+};
+
 export const AcademicFacultyService = {
   createFaculty,
   getAllFacultys,
   getSingleFaculty,
   updateFacultyById,
   deleteFaculty,
+  createFacultyFromEvent,
+  updateFacultyFromEvent,
+  deleteFacultyEvent,
 };
