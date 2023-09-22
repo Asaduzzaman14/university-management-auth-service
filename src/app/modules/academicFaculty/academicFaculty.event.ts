@@ -28,7 +28,7 @@ const initAcademicFacultyEvents = () => {
   RedisClient.subscribe(EVENT_ACADEMIC_FACULTY_DELETED, async (e: string) => {
     const data: AcademicFacultyDeletedEvent = JSON.parse(e);
 
-    await AcademicFacultyService.deleteFacultyEvent(data.id);
+    await AcademicFacultyService.deleteFacultyEvent(data?.id);
   });
 };
 

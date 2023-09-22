@@ -148,6 +148,7 @@ const createSemesterFromEvent = async (
     syncId: e.id,
   });
 };
+
 const updateSemesterFromEvent = async (
   e: IAcademicSemesterCreatedEvent
 ): Promise<void> => {

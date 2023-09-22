@@ -4,6 +4,8 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { IPagenaionOptions } from '../../../interfaces/paginition';
 import { academicFacultySearchableFields } from './academicFaculty.constant';
 import {
+  AcademicFacultyCreatedEvent,
+  AcademicFacultyUpdatedEvent,
   IAcademicFaculty,
   IAcademicFacultyFilters,
 } from './academicFaculty.interface';
@@ -90,14 +92,18 @@ const deleteFaculty = async (id: string): Promise<IAcademicFaculty | null> => {
 };
 
 // Create semester service
-const createFacultyFromEvent = async (e: any): Promise<void> => {
+const createFacultyFromEvent = async (
+  e: AcademicFacultyCreatedEvent
+): Promise<void> => {
   await AcademicFaculty.create({
     title: e.title,
     syncId: e.id,
   });
 };
 
-const updateFacultyFromEvent = async (e: any): Promise<void> => {
+const updateFacultyFromEvent = async (
+  e: AcademicFacultyUpdatedEvent
+): Promise<void> => {
   await AcademicFaculty.findOneAndUpdate(
     { syncId: e.id },
     {
