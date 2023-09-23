@@ -10,6 +10,7 @@ import {
 import { AcademicDepartment } from './academicDepartment.Modal';
 import { academicDepartmentSearchableFields } from './academicDepartment.constant';
 import { IGenericResponse } from '../../../interfaces/common';
+import { AcademicFaculty } from '../academicFaculty/academicFaculty.Modal';
 
 const createDepartment = async (
   paylode: IAcademicDepertment
@@ -104,7 +105,7 @@ const deleteDepartment = async (
 const insertIntoDBFromEvent = async (
   e: AcademicDepartmentCreatedEvent
 ): Promise<void> => {
-  const academicFaculty = await AcademicDepartment.findOne({
+  const academicFaculty = await AcademicFaculty.findOne({
     syncId: e.academicFacultyId,
   });
   const payload = {

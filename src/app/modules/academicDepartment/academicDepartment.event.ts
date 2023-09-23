@@ -34,6 +34,7 @@ const initAcademicDepartmentEvents = () => {
     async (e: string) => {
       const data: AcademicDepartmentDeletedEvent = JSON.parse(e);
       await AcademicDepartmentServices.deleteOneFromDBFromEvent(data.id);
+      console.log(data, 'del');
     }
   );
 };

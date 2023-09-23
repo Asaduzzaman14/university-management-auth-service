@@ -3,8 +3,8 @@ import { IAcademicFaculty } from '../academicFaculty/academicFaculty.interface';
 
 export type IAcademicDepertment = {
   title: string;
-
   academicFaculty: Types.ObjectId | IAcademicFaculty;
+  syncId: string;
 };
 
 export type AcademicDepartmentModal = Model<IAcademicDepertment, object>;

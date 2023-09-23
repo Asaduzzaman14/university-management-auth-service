@@ -17,12 +17,14 @@ const initAcademicFacultyEvents = () => {
     const data: AcademicFacultyCreatedEvent = JSON.parse(e);
 
     await AcademicFacultyService.createFacultyFromEvent(data);
+    console.log(data);
   });
 
   RedisClient.subscribe(EVENT_ACADEMIC_FACULTY_UPDATED, async (e: string) => {
     const data: AcademicFacultyUpdatedEvent = JSON.parse(e);
 
     await AcademicFacultyService.updateFacultyFromEvent(data);
+    console.log(data);
   });
 
   RedisClient.subscribe(EVENT_ACADEMIC_FACULTY_DELETED, async (e: string) => {

@@ -1,0 +1,7 @@
+Sat Sep 23 2023 16 1637 [UM] error: AcademicDepartment validation failed: academicFaculty: Path `academicFaculty` is required.
+Sat Sep 23 2023 16 202 [UM] error: Operation `academicdepartments.findOne()` buffering timed out after 10000ms
+Sat Sep 23 2023 16 2120 [UM] error: AcademicDepartment validation failed: academicFaculty: Path `academicFaculty` is required.
+Sat Sep 23 2023 16 2849 [UM] error: AcademicDepartment validation failed: academicFaculty: Path `academicFaculty` is required.
+Sat Sep 23 2023 16 3122 [UM] error: AcademicDepartment validation failed: academicFaculty: Path `academicFaculty` is required.
+Sat Sep 23 2023 16 3548 [UM] error: AcademicDepartment validation failed: academicFaculty: Path `academicFaculty` is required.
+Sat Sep 23 2023 16 4147 [UM] error: AcademicDepartment validation failed: academicFaculty: Path `academicFaculty` is required.
