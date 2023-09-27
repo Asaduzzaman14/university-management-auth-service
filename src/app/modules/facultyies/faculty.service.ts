@@ -5,9 +5,13 @@ import mongoose, { SortOrder } from 'mongoose';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
 import { IFaculty } from './faculty.interface';
-import { facultySearchableFields } from './faculty.constants';
+import {
+  EVENT_FACULTY_UPDATED,
+  facultySearchableFields,
+} from './faculty.constants';
 import { Faculty, IFacultyFilters } from './faculty.model';
 import { User } from '../user/user.models';
+import { RedisClient } from '../../../shared/redis';
 
 const getAllFaculty = async (
   filters: IFacultyFilters,
@@ -100,6 +104,9 @@ const updateFaculty = async (
   const result = await Faculty.findOneAndUpdate({ id }, updatedFacultyData, {
     new: true,
   });
+  if (result) {
+    await RedisClient.publish(EVENT_FACULTY_UPDATED, JSON.stringify(result));
+  }
   return result;
 };
 
