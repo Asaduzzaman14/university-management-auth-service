@@ -1,0 +1,2 @@
+Mon Sep 25 2023 21 1141 [UM] error: Failed to connect database querySrv ETIMEOUT _mongodb._tcp.cluster0.dci89.mongodb.net
+Mon Sep 25 2023 21 1420 [UM] error: Failed to connect database querySrv EREFUSED _mongodb._tcp.cluster0.dci89.mongodb.net

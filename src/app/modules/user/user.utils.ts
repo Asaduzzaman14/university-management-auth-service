@@ -20,9 +20,10 @@ export const genarateStudentId = async (
     (await findLastStudentId()) || (0).toString().padStart(5, '0');
   let incrementalid = (parseInt(currentUserId) + 1).toString().padStart(5, '0');
 
-  incrementalid = `${academicSemester?.year.substring(2)}${
+  incrementalid = `${academicSemester?.year.toString().substring(2)}${
     academicSemester?.code
   }${incrementalid}`;
+  console.log(incrementalid, 'incremental id');
 
   return incrementalid;
 };

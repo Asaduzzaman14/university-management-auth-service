@@ -17,13 +17,15 @@ import { Faculty } from '../facultyies/faculty.model';
 
 import { IAdmin } from '../admin/admin.interface';
 import { Admin } from '../admin/admin.model';
+import { RedisClient } from '../../../shared/redis';
+import { EVENT_STUDENT_CREATED } from './user.constant';
 
 const createStudent = async (
   student: IStudent,
   user: IUser
 ): Promise<IUser | null> => {
-  // console.log(student, 'student data');
-  // console.log(user, 'USER data');
+  console.log(student, 'student data');
+  console.log(user, 'USER data');
 
   // default password
 
@@ -87,6 +89,14 @@ const createStudent = async (
       ],
     });
   }
+
+  // if (newUserAllData) {
+  //   await RedisClient.publish(
+  //     EVENT_STUDENT_CREATED,
+  //     JSON.stringify(newUserAllData.student)
+  //   );
+  // }
+  console.log(newUserAllData, 'result');
 
   return newUserAllData;
 };

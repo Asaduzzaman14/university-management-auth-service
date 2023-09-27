@@ -42,7 +42,7 @@ const getAllFacultys = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IAcademicFaculty[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Semester Retrieved Successfully',
+    message: 'Academic faculty Retrieved Successfully',
     data: result.data,
     meta: result.meta,
   });

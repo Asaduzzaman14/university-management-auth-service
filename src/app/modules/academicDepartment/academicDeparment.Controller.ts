@@ -36,13 +36,13 @@ const getAllDepartment = catchAsync(async (req: Request, res: Response) => {
     filters,
     paginationOptions
   );
-  console.log(result);
+  // console.log(result);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Departments Retrieved  Succesfully',
-    data: result,
+    data: result.data,
   });
 });
 const getDepartmentById = catchAsync(async (req: Request, res: Response) => {
