@@ -104,9 +104,11 @@ const updateFaculty = async (
   const result = await Faculty.findOneAndUpdate({ id }, updatedFacultyData, {
     new: true,
   });
+
   if (result) {
     await RedisClient.publish(EVENT_FACULTY_UPDATED, JSON.stringify(result));
   }
+
   return result;
 };
 

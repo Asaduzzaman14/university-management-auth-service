@@ -81,6 +81,7 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
     config.jwt.secret as Secret,
     config.jwt.secret_expires_in as string
   );
+  console.log(newAccessToken, 'new AccessToken');
 
   return {
     accessToken: newAccessToken,

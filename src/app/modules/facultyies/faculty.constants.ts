@@ -19,5 +19,4 @@ export const facultySearchableFields = [
   'name.lastName',
   'name.middleName',
 ];
-
 export const EVENT_FACULTY_UPDATED = 'faculty.updated';

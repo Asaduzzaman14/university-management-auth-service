@@ -11,15 +11,14 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
 
   const result = await AuthService.loginUser(loginData);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { refreshToken, ...others } = result;
-  // set refresh token into cookie
+  const { refreshToken } = result;
 
+  // set refresh token into cookie
   const cookieOptions = {
-    secure: config.env === 'prouction',
+    secure: config.env === 'production',
     httpOnly: true,
   };
-  res.cookie('refreshToken', result.refreshToken, cookieOptions);
+  res.cookie('refreshToken', refreshToken, cookieOptions);
 
   // delete result.refreshToken
 
@@ -27,7 +26,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User Loggedin successfully',
-    data: others,
+    data: result,
   });
 
   // console.log(req.body);
@@ -35,21 +34,23 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
 
 const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const { refreshToken } = req.cookies;
+  console.log(refreshToken, 'my token');
 
   const result = await AuthService.refreshToken(refreshToken);
+  console.log(result, 'refreshToken');
 
   // set refresh token into cookie
-
   const cookieOptions = {
-    secure: config.env === 'prouction',
+    secure: config.env === 'production',
     httpOnly: true,
   };
+
   res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse<IRefreshTokenResponse>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: ' 1111',
+    message: 'New Refresh token generated!',
     data: result,
   });
 
