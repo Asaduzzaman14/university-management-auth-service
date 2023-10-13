@@ -12,6 +12,8 @@ import { ManagementDepartment } from './managementDepartment.model';
 const createDepartment = async (
   payload: IManagementDepartment
 ): Promise<IManagementDepartment | null> => {
+  console.log(payload);
+
   const result = await ManagementDepartment.create(payload);
   return result;
 };
@@ -81,6 +83,8 @@ const updateDepartment = async (
   id: string,
   payload: Partial<IManagementDepartment>
 ): Promise<IManagementDepartment | null> => {
+  console.log(id, payload);
+
   const result = await ManagementDepartment.findOneAndUpdate(
     { _id: id },
     payload,

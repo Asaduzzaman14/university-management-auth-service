@@ -37,6 +37,8 @@ const createFacultyController: RequestHandler = catchAsync(
 
 const createAdmin: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
+    console.log(req.body);
+
     const { admin, ...userData } = req.body;
     const result = await UserService.createAdmin(admin, userData);
 

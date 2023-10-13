@@ -56,6 +56,8 @@ const updateDepartment = catchAsync(
   catchAsync(async (req: Request, res: Response) => {
     const { id } = req.params;
     const updatedData = req.body;
+    console.log(updatedData);
+
     const result = await ManagementDepartmentService.updateDepartment(
       id,
       updatedData

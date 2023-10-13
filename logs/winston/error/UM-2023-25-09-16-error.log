@@ -1,1 +1,0 @@
-Mon Sep 25 2023 16 4948 [UM] error: E11000 duplicate key error collection: univercity-managment.academicfaculties index: title_1 dup key: { title: "api" }

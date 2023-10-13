@@ -19,13 +19,16 @@ async function main() {
     await RedisClient.connect().then(() => subscriveToEvents());
 
     await mongoose.connect(config.database_url as string);
-    logger.info('database connection successfull');
+    console.log('database connection successfull');
+    // logger.info('database connection successfull');
 
     server = app.listen(config.port, () => {
-      logger.info(`express app is listining in port ${config.port}`);
+      // logger.info(`express app is listining in port ${config.port}`);
+      console.log(`express app is listining in port ${config.port}`);
     });
   } catch (error) {
-    errorlogger.error('Failed to connect database', error);
+    // errorlogger.error('Failed to connect database', error);
+    console.log('Failed to connect database', error);
   }
 
   process.on('unhandledRejection', error => {

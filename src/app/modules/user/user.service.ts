@@ -179,6 +179,8 @@ const createAdmin = async (
   admin: IAdmin,
   user: IUser
 ): Promise<IUser | null> => {
+  console.log(admin, user);
+
   // default password
   if (!user.password) {
     user.password = config.default_admin_pass as string;
@@ -224,7 +226,7 @@ const createAdmin = async (
       path: 'admin',
       populate: [
         {
-          path: 'ManagementDepartment',
+          path: 'managementDepartment',
         },
       ],
     });

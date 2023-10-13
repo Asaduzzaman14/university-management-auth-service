@@ -66,7 +66,7 @@ const getAllAdmins = async (
 };
 
 const getSingleAdmin = async (id: string): Promise<IAdmin | null> => {
-  const result = await Admin.findOne({ id }).populate('ManagementDepartment');
+  const result = await Admin.findOne({ id }).populate('managementDepartment');
   return result;
 };
 
