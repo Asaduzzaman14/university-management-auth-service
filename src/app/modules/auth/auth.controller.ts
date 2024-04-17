@@ -40,12 +40,12 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
   console.log(result, 'refreshToken');
 
   // set refresh token into cookie
-  const cookieOptions = {
-    secure: config.env === 'production',
-    httpOnly: true,
-  };
+  // const cookieOptions = {
+  //   secure: config.env === 'production',
+  //   httpOnly: true,
+  // };
 
-  res.cookie('refreshToken', refreshToken, cookieOptions);
+  // res.cookie('refreshToken', refreshToken, cookieOptions);
 
   sendResponse<IRefreshTokenResponse>(res, {
     statusCode: httpStatus.OK,
